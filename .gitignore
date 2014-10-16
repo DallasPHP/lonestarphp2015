@@ -1,3 +1,6 @@
 /.sculpin
 /.idea
 /output_*
+/vendor
+
+*.pyc

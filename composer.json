@@ -1,0 +1,12 @@
+{
+    "require": {
+        "php": ">=5.4.0",
+        "sculpin/sculpin": "~2.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Lonestar\\Bundle\\ExternalSourceBundle": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
