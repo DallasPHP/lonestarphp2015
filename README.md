@@ -17,3 +17,10 @@ Optionally you can:
 2. Run `composer install`
 3. Run `fab develop`
 4. Open [http://localhost:8000/](http://localhost:8000/) in your browser, et voila!
+
+## License
+
+This project is licensed under the MIT license. However, we respectfully ask a few things if you use our site as a base:
+
+1. Let us know what project you're using it for *(We're curious is all)*
+2. Do not re-use our stylesheets *(This one should be obvious)*
