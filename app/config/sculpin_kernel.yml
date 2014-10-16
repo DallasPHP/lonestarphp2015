@@ -1,0 +1,7 @@
+#sculpin_content_types:
+#    projects:
+#        layout: project
+#        permalink: work/:slug_title/index.html
+#    blog:
+#        layout: default
+#        permalink: blog/:slug_title/index.html

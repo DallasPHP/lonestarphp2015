@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=0, width=device-width, minimal-ui=1">
+
+        <title>{% block title %}{{ page.title }}{% endblock %} {% if page.name == 'Home' %} Lone Star PHP {% else %} | Lone Star PHP {% endif %}</title>
+    </head>
+    <body>
+        {% include 'nav.html' %}
+
+        <div id="main-wrap">
+            {% block content %}{% endblock %}
+        </div>
+
+        {% include 'footer.html' %}
+
+        {% block javascript %}
+            <script></script>
+        {% endblock %}
+
+    </body>
+</html>
