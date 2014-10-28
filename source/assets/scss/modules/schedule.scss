@@ -1,0 +1,27 @@
+.schedule { margin-bottom: 1rem; }
+.schedule-row .schedule-session {
+  background: #eee;
+  font-size: 0.9rem;
+  &:hover { background: rgba(255, 247, 188, 0.3); }
+}
+.schedule-row--alt .schedule-session { background: #DBDBEA; }
+.schedule-block--centered { text-align: center; }
+.schedule-block--middle { line-height: 6rem; }
+.schedule-block {
+  margin-top: 4px;
+  padding: 0.5em;
+  min-height: 8rem;
+}
+.schedule-time { background: #ccc; }
+.schedule-location,
+.schedule-talk,
+.schedule-speaker {
+  line-height: inherit;
+  margin: 0.5rem 0;
+  display: block;
+}
+.schedule-talk > a {
+  color: #333;
+}
+
+.grid--narrow > .schedule-row > .grid__item { padding-left: 4px; }

@@ -1,0 +1,11 @@
+body {
+    background: $secondaryColor;
+    font: 1em/1.4 "Lucida Grande", arial, verdana;
+    font-weight: 400;
+}
+a {
+    color: $baseColor;
+}
+a:hover {
+    color: lighten($baseColor, 10%);
+}

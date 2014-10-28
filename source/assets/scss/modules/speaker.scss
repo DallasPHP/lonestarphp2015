@@ -1,0 +1,25 @@
+$photoRadius: 10rem;
+
+.speaker {
+  border-top: 1px solid #ccc;
+  box-shadow: 0 -1px 0 #fff;
+  padding: 1.5rem 0;
+  &:first-child {
+    padding-top: 0;
+    box-shadow: none;
+    border: none;
+  }
+}
+.speaker-info { text-align: center; }
+.speaker-info a { text-decoration: none; }
+.speaker-photo {
+  display: inline-block;
+  background: transparent url('/images/bg-speaker.png') repeat;
+  padding: 1.5rem;
+  border: 1px #ccc dashed;
+  border-radius: $photoRadius;
+}
+.speaker-photo > img {
+  border-radius: $photoRadius;
+}
+.speaker-talks a { font-size: 0.8rem; }

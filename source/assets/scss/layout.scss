@@ -1,0 +1,110 @@
+.l-header {
+    background: #fff url('/assets/img/dallas-skyline.jpg') top center no-repeat;
+    background-size: cover;
+    background-position: center 10%;
+}
+.l-header-overlay {
+    background: rgba(180, 34, 41, 0.9);
+    padding: 5rem 0;
+}
+
+.l-section { padding: 1rem 0; }
+.l-cta {
+    background: $baseColor;
+    color: #fff;
+    font-size: 2rem;
+    font-family: 'Open Sans', 'lucida grande', arial;
+    font-weight: 300;
+}
+.l-description { background: #fff; }
+.l-map {
+    height: 400px;
+    width: 100%;
+    @include media-query(palm) { height: 200px; }
+}
+.l-footer {
+    background: transparent url('../images/texture-jeans-dark.png') repeat;
+    color: #fff;
+}
+.nav--light > li > a {
+    background: #ecebe7;
+    color: #63625a;
+    text-decoration: none;
+    margin: 1px 0;
+    padding: 0.5em 1em;
+    font-size: 0.8rem;
+    &:hover { background: #d5d3cb; }
+}
+.nav-logo { margin: 0.6rem; }
+.nav-main {
+    padding: 0 0.5rem;
+    position: fixed;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+    background: #000;
+    width: 100%;
+}
+.nav-main .nav {
+    margin: 0;
+}
+.nav-main li {
+    @include media-query(palm) {
+        display: block;
+        padding: 0 0.5rem;
+    }
+}
+.nav-main .nav a {
+    color: #FFF;
+    padding: 1rem 1.2rem;
+    text-decoration: none;
+    font-family: $fontHeadlineFamily;
+    font-size: 1.1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-top: 3px solid transparent;
+    -webkit-transition: border .2s ease-in-out;
+    &:hover,
+    &.active {
+        border-color: $baseColor;
+        color: $baseColor;
+    }
+    @include media-query(palm) {
+        display: block;
+    }
+}
+.nav-toggle {
+    display: inline-block;
+    @include media-query(lap-and-up) { display: none; }
+}
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin: 0 0.5rem;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.collapse {
+    display: none;
+    @include media-query(lap-and-up) { display: block; }
+}
+
+.icon-bar {
+    background: #CCC;
+    margin: 2px 0;
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

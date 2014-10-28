@@ -1,0 +1,81 @@
+/**
+ * Base Button Object
+ * @tags ^button
+ * @format
+ * <a href="#" class="btn">Register</a>
+ * <button class="btn">Register</button>
+ * <input type="submit" class="btn" value="Register">
+ */
+.btn {
+    border: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0.5em;
+    cursor: pointer;
+    font: inherit;
+    line-height: 1;
+}
+.btn,
+.btn:hover {
+    text-decoration: none;
+}
+
+/**
+ * Button Sizes
+ * @tags ^button
+ * @extends btn
+ */
+.btn--xsmall { font-size: 1rem; }
+.btn--small { font-size: 1.2rem; }
+.btn--medium { font-size: 1.5rem; }
+.btn--large { font-size: 2rem; }
+.btn--xlarge { font-size: 2.5rem; }
+.btn--full { display: block; }
+.btn--wide { padding: 1rem 4rem; }
+
+/**
+ * Primary Button Style
+ * @tags ^button
+ * @extends btn
+ */
+.btn-primary {
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.25);
+    margin: 1em 0;
+    background: $baseColor;
+    color: #fff;
+    font-family: $fontButtonFamily;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+.btn-basic {
+    font-family: $fontButtonFamily;
+    text-transform: uppercase;
+}
+.btn-primary:hover {
+    background: lighten($baseColor, 5%);
+    color: #fff;
+}
+.btn-primary:visited {
+    color: #fff;
+}
+.btn--dark {
+    background: darken($baseColor, 25%);
+    color: #fff;
+    &:hover {
+        background: darken($baseColor, 10%);
+    }
+}
+.btn--light {
+    background: #ebf0e7;
+    color: $baseColor;
+}
+.btn-input {
+    background: #292c34;
+    font-size: 1.5rem;
+    color: #999;
+    height: 45px;
+    padding: 0.5rem 6rem;
+}
