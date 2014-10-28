@@ -3,10 +3,61 @@ layout: default
 title:
 name: Home
 ---
-{% block content %}
-    <h1>Lorem Ipsum</h1>
+{% block body %}
+<section class="l-section">
+    <div class="container">
+        <h1 class="h-section">Register Now</h1>
+        <div class="grid grid--center">
+            <div class="grid__cell palm-grid__cell--full grid__cell--one-third pricing">
+                <div class="pricing__header">
+                    Training
+                </div>
+                <div class="pricing__body">
+                    <span class="pricing__price">$125</span>
+                </div>
+                <a href="#" class="pricing__btn">Buy Now</a>
+            </div>
+            <div class="grid__cell palm-grid__cell--full grid__cell--one-third pricing pricing--highlight">
+                <div class="pricing__header">
+                    Training + Conference
+                </div>
+                <div class="pricing__body">
+                    <span class="pricing__price">$325</span>
+                </div>
+                <a href="#" class="pricing__btn">Buy Now</a>
+            </div>
+            <div class="grid__cell palm-grid__cell--full grid__cell--one-third pricing">
+                <div class="pricing__header">
+                    Conference
+                </div>
+                <div class="pricing__body">
+                    <span class="pricing__price">$225</span>
+                </div>
+                <a href="#" class="pricing__btn">Buy Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="l-section l-cta">
+    <div class="container">
+        <h1 class="h-section h-section--light">Stay up to date with Lone Star PHP</h1>
+        <form action="//lonestarphp.us4.list-manage.com/subscribe/post?u=50806fdc694d9f77ae2ccde46&amp;id=f28821c134" method="post" target="_blank" novalidate>
+            <div class="grid grid--center">
+                <div class="grid__cell grid__cell--two-thirds">
+                    <input type="email" name="email" placeholder="Enter Email Address" class="text-input text-input--full">
+                </div>
+                <div class="grid__cell grid__cell--one-quarter">
+                    <button type="submit" class="btn btn-input">Subscribe</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<section class="l-map" id="map"></section>
 {% endblock %}
 
 {% block javascript %}
     {{ parent() }}
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="/assets/js/map.js"></script>
 {% endblock %}
