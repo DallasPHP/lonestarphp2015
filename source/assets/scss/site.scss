@@ -41,6 +41,9 @@
     font-size: 6em;
     line-height: 2rem;
     margin-bottom: 2rem;
+    @include media-query(palm) {
+        line-height: 5rem;
+    }
 }
 
 .h-header-highlight {
@@ -87,6 +90,9 @@
 .container {
     padding: 0 15px;
     margin: 0 auto;
+    @include media-query(palm) {
+        margin: 0;
+    }
     @include media-query(desk) {
         width: $desk-start - 30px;
     }

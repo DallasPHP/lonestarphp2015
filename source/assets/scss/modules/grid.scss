@@ -1,8 +1,9 @@
 $breakpoints: (
-  "screen and (max-width: 30rem)" "palm",
-  "screen and (min-width: 30.1rem) and (max-width: 46rem)" "lap",
-  "screen and (min-width: 30.1rem)" "lap-and-up",
-  "screen and (min-width: 46.1rem)" "desk"
+  "only screen and (max-width:#{$palm-end})" "palm",
+  "only screen and (min-width:#{$lap-start}) and (max-width:#{$lap-end})" "lap",
+  "only screen and (min-width:#{$lap-start})" "lap-and-up",
+  "only screen and (max-width:#{$lap-end})" "portable",
+  "only screen and (min-width:#{$desk-start})" "desk"
 );
 
 @mixin breakpoint($point) {
@@ -36,6 +37,9 @@ $breakpoints: (
 .grid--center {
   justify-content: center;
 }
+.grid--split {
+  justify-content: space-between;
+}
 .grid--top {
   align-items: flex-start;
 }
@@ -64,6 +68,7 @@ $breakpoints: (
   .#{$namespace}grid__cell--full {
     width: 100% !important;
     flex: none !important;
+    .grid--gutters > & { padding: 0; }
   }
   .#{$namespace}grid__cell--one-half {
     width: 50% !important;

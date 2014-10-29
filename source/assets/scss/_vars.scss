@@ -36,7 +36,7 @@ $use-nav:           true;
 $use-options:       false;
 $use-pagination:    false;
 $use-breadcrumb:    false;
-$use-media:         true;
+$use-media:         false;
 $use-marginalia:    false;
 $use-island:        false;
 $use-block-list:    false;
@@ -64,7 +64,10 @@ $use-greybox:       false;
 /**
  * Place any variables that should override inuit.css’ defaults here.
  */
-
+$palm-end: 60rem;
+$lap-start: 50rem;
+$desk-start: 1024px!default;
+$desk-wide-start: 1200px!default;
 
 
 

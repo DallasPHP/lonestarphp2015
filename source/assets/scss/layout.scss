@@ -2,10 +2,16 @@
     background: #fff url('/assets/img/dallas-skyline.jpg') top center no-repeat;
     background-size: cover;
     background-position: center 10%;
+    @include media-query(palm) {
+        .grid__cell { text-align: center; }
+    }
 }
 .l-header-overlay {
     background: rgba(180, 34, 41, 0.9);
     padding: 5rem 0;
+    @include media-query(palm) {
+        padding: 2rem 0;
+    }
 }
 
 .l-section { padding: 1rem 0; }
@@ -23,7 +29,7 @@
     @include media-query(palm) { height: 200px; }
 }
 .l-footer {
-    background: transparent url('../images/texture-jeans-dark.png') repeat;
+    background: #292c34;
     color: #fff;
 }
 .nav--light > li > a {
@@ -38,7 +44,6 @@
 .nav-logo { margin: 0.6rem; }
 .nav-main {
     padding: 0 0.5rem;
-    position: fixed;
     box-shadow: 0 1px 0 rgba(0,0,0,0.2);
     background: #000;
     width: 100%;
@@ -107,4 +112,52 @@
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+}
+
+.page-frame {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.content-frame {
+    position: relative;
+    width: 100%;
+}
+.off-canvas {
+    z-index: 1000;
+    position: relative;
+    overflow: hidden;
+    display: none;
+}
+@include media-query(palm) {
+    .nav-main .nav { display: none; }
+    .content-frame {
+        left: 0;
+        transition: transform 500ms ease;
+    }
+    .active .content-frame {
+        transform: translate3d(35%, 0, 0) scale3d(1, 1, 1);
+    }
+    .off-canvas {
+        background: #333;
+        box-shadow: inset -1.5em 0 1.5em -0.75em rgba(0, 0, 0, 0.25);
+        position: absolute;
+        display: block;
+        top: 0;
+        width: 35%;
+        height: 100%;
+        left: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
+    .off-canvas li { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .off-canvas li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .off-canvas li a:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    .active .off-canvas {
+        height: 100%;
+    }
 }

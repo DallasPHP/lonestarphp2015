@@ -17,34 +17,98 @@
     {% endblock %}
 </head>
 <body>
-    {% include 'nav.html' %}
-    <header class="l-header">
-        <div class="l-header-overlay">
-            <div class="container">
-                <div class="grid grid--gutters">
-                    <div class="grid__cell grid__cell--one-quarter palm-grid__cell--full lap-grid__cell--full"><img src="/assets/img/lonestarphp-logo.png"></div>
-                    <div class="grid__cell palm-grid__cell--full lap-grid__cell--full">
-                        <h1 class="h-header">April 16 - 18, 2015 // Dallas, TX</h1>
-                        <h2 class="h-header h-header--alpha">Lone Star PHP</h2>
-                        <a href="http://cfp.lonestarphp.com" class="btn btn-basic btn--large btn--light btn--wide">Call for Papers Now Open</a>
+    <div class="page-frame">
+        <div class="content-frame">
+            <nav class="off-canvas">
+                <ul class="nav nav--block nav--stacked">
+                    {% include "nav.html" %}
+                </ul>
+            </nav>
+            <nav class="nav-main z-structural">
+                <div class="grid grid--split grid--middle">
+                    <div class="grid__cell">
+                        <a href="/" class="nav-logo"><img src="/assets/img/lonestarphp-text-logo.png" alt="Lone Star PHP"></a>
+                    </div>
+                    <div class="grid__cell grid__cell--three-quarters palm-grid__cell--one-half text--right">
+                        <div class="nav-toggle">
+                            <button type="button" class="navbar-toggle">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <ul class="nav nav--block">
+                            {% include "nav.html" %}
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </nav>
+            <header class="l-header">
+                <div class="l-header-overlay">
+                    <div class="container grid grid--gutters">
+                        <div class="grid__cell grid__cell--one-quarter palm-grid__cell--full lap-grid__cell--full"><img src="/assets/img/lonestarphp-logo.png"></div>
+                        <div class="grid__cell palm-grid__cell--full lap-grid__cell--full">
+                            <h1 class="h-header">April 16 - 18, 2015 // Dallas, TX</h1>
+                            <h2 class="h-header h-header--alpha">Lone Star PHP</h2>
+                            <a href="http://cfp.lonestarphp.com" class="btn btn-basic btn--large btn--light btn--wide">Call for Papers Now Open</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            {% block body %}{% endblock %}
+            {% block sponsors %}
+            <section class="l-section">
+                <div class="container">
+                    <h1 class="h-section">Sponsors</h1>
+                    {% include "sponsors.html" %}
+                    <p>In 2015, Lone Star PHP looks to continue its great success. If you would like to be a part of making 2015 the best event yet, review the <a href="/docs/LoneStarPHP-Prospectus-2014.pdf" target="_blank">sponsor prospectus</a>.</p>
+                </div>
+            </section>
+            {% endblock %}
+            <footer class="l-footer l-section">
+                <div class="container grid grid--gutters">
+                        <div class="grid__cell grid__cell--one-half palm-grid__cell--full">
+                            <h6 class="h-footer">Social Media</h6>
+                            <ul class="nav nav--stacked nav--light">
+                                <li><a href="http://twitter.com/lonestarphp"><i class="fa fa-twitter"></i> @lonestarphp</a></li>
+                                <li><a href="https://www.facebook.com/lonestarconference"><i class="fa fa-facebook-square"></i> lonestarconference</a></li>
+                            </ul>
+                        </div>
+                        <div class="grid__cell grid__cell--one-half palm-grid__cell--full">
+                            <h6 class="h-footer">Additional Information</h6>
+                            <ul class="nav nav--stacked nav--light">
+                                <li><a href="/refund">Refund Policy</a></li>
+                                <li><a href="/code-conduct">Code of Conduct</a></li>
+                                <li><a href="/credits">Site Credits</a></li>
+                            </ul>
+                        </div>
+                        <div class="grid__cell copyright">
+                            Copyright &copy; 2011–2014 Lone Star PHP Conference &ndash; All Rights Reserved
+                        </div>
+                </div>
+            </footer>
         </div>
-    </header>
-    {% block body %}{% endblock %}
-    {% block sponsors %}
-    <section class="l-section">
-        <div class="container">
-            <h1 class="h-section">Sponsors</h1>
-            {% include "sponsors.html" %}
-            <p>In 2015, Lone Star PHP looks to continue its great success. If you would like to be a part of making 2015 the best event yet, review the <a href="/docs/LoneStarPHP-Prospectus-2014.pdf" target="_blank">sponsor prospectus</a>.</p>
-        </div>
-    </section>
-    {% endblock %}
+    </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>
+        $(function() {
+            $('.navbar-toggle').on('click', function (e) {
+                $('.page-frame').toggleClass('active');
+                e.stopPropagation();
+                e.preventDefault();
+            });
+
+            $('.off-canvas').on('click', function(e) {
+                e.stopPropagation();
+            });
+
+            $('body').on('click', '.active .content-frame', function(e) {
+                $('.page-frame').removeClass('active');
+            });
+        });
+
         /**
          * Offset anchors due to fixed header
          * @param  {Event} e Event object
