@@ -6,6 +6,7 @@ documentation to learn more about working with Sculpin
 ## Getting Started
 
 To edit/parse the CSS
+
 1. Run `gem install sass`
 2. Run `npm install`
 3. Run `gulp`
