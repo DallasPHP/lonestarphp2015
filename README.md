@@ -5,6 +5,12 @@ documentation to learn more about working with Sculpin
 
 ## Getting Started
 
+To edit/parse the CSS
+1. Run `gem install sass`
+2. Run `npm install`
+3. Run `gulp`
+4. Now when you save any SCSS file, it will automatically parse and minify it to CSS
+
 To get started developing on the website:
 
 1. Run `composer install`
