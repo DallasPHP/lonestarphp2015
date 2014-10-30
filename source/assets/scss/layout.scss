@@ -89,10 +89,8 @@
     border: 1px solid #ddd;
     border-radius: 4px;
 }
-.collapse {
-    display: none;
-    @include media-query(lap-and-up) { display: block; }
-}
+.nav-social { margin: 0 0 0 -0.25rem; }
+.nav-social > li { margin: 0 0.25rem; }
 
 .icon-bar {
     background: #CCC;
