@@ -2,7 +2,6 @@
 /.idea
 /output_*
 /vendor
-/source/assets/css
 .sass-cache
 node_modules
 
