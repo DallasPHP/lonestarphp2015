@@ -18,6 +18,11 @@ To get started developing on the website:
 2. Run `vendor/bin/sculpin generate --watch --server`
 3. Open [http://localhost:8000/](http://localhost:8000/) in your browser, et voila!
 
+For deployments you will need the capistrano gem installed
+
+1. Run `gem install capistrano`
+2. To deploy to production `cap production deploy`
+
 Optionally you can:
 
 1. Run `pip install fabric`
