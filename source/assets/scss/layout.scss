@@ -7,7 +7,7 @@
     }
 }
 .l-header-overlay {
-    background: rgba(180, 34, 41, 0.9);
+    background: rgba(180, 34, 41, 0.8);
     padding: 5rem 0;
     @include media-query(palm) {
         padding: 2rem 0;
@@ -134,7 +134,7 @@
         transition: transform 500ms ease;
     }
     .active .content-frame {
-        transform: translate3d(35%, 0, 0) scale3d(1, 1, 1);
+        transform: translate3d(50%, 0, 0) scale3d(1, 1, 1);
     }
     .off-canvas {
         background: #333;
@@ -142,7 +142,7 @@
         position: absolute;
         display: block;
         top: 0;
-        width: 35%;
+        width: 50%;
         height: 100%;
         left: 0;
         transform: translate3d(-100%, 0, 0);
