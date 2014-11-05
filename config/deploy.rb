@@ -26,7 +26,7 @@ set :pty, true
 # set :linked_files, %w{config/database.yml}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{vendor}
+set :linked_dirs, %w{vendor node_modules}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -48,8 +48,8 @@ namespace :deploy do
   desc 'Parse SASS and minify'
   task :sass_parse do
     on roles(:web) do
-      within "#{release_path}/source/assets/scss" do
-        execute 'sass', 'site.scss', '../css/site.min.css', '--style compressed'
+      within release_path do
+        execute 'gulp', 'styles'
       end
     end
   end
@@ -63,7 +63,17 @@ namespace :deploy do
     end
   end
 
+  desc 'Gulp Install'
+  task :gulp_install do
+    on roles(:web) do
+      within release_path do
+        execute 'npm', 'install'
+      end
+    end
+  end
+
   after :publishing, :composer_install
+  after :publishing, :gulp_install
   after :publishing, :sass_parse
   after :publishing, :sculpin_generate
 
