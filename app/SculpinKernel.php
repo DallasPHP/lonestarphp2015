@@ -4,8 +4,9 @@ class SculpinKernel extends \Sculpin\Bundle\SculpinBundle\HttpKernel\AbstractKer
 {
     protected function getAdditionalSculpinBundles()
     {
+        error_reporting(error_reporting() ^ E_DEPRECATED ^ E_USER_DEPRECATED);
         return array(
-            'Lonestar\Bundle\ExternalSourceBundle\LonestarExternalSourceBundle'
+            'Lonestar\Bundle\OpenCfpBundle\OpenCfpBundle'
         );
     }
 }

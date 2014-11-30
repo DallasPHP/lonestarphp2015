@@ -5,7 +5,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Lonestar\\Bundle\\ExternalSourceBundle": "src/"
+            "Lonestar\\Bundle\\OpenCfpBundle": "src/"
         }
     },
     "minimum-stability": "dev"

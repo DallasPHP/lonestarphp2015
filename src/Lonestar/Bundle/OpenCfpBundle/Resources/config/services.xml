@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="lsp.opencfp_source.class">Lonestar\Bundle\OpenCfpBundle\OpenCfpDataSource</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="lsp.opencfp_source" class="%lsp.opencfp_source.class%">
+            <!--<argument>%kernel.root_dir%/config</argument>-->
+            <argument type="service" id="sculpin.site_configuration" />
+            <argument type="service" id="sculpin.site_configuration_factory" />
+            <argument type="service" id="sculpin.finder_factory" />
+            <argument type="service" id="sculpin.matcher" />
+            <tag name="sculpin.data_source" />
+        </service>
+
+    </services>
+</container>
