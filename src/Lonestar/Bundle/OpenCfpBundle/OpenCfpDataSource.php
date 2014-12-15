@@ -32,6 +32,7 @@ class OpenCfpDataSource implements DataSourceInterface {
         $this->finderFactory = $finderFactory ?: new FinderFactory;
         $this->matcher = $matcher ?: new AntPathMatcher;
         $this->sinceTime = '1970-01-01T00:00:00Z';
+        $this->baseUrl = 'http://api.lonestarphp.com';
     }
 
     public function dataSourceId() {
@@ -42,24 +43,23 @@ class OpenCfpDataSource implements DataSourceInterface {
         $sinceTimeLast = $this->sinceTime;
         $this->sinceTime = date('c');
 
-        $mockData = [
-            [
-                'name' => 'Daniel Cousineau',
-                'country' => 'USA',
-                'twitter' => '@dcousineau',
-            ],
-            [
-                'name' => 'Daniel Cousineau',
-                'country' => 'USA',
-                'twitter' => '@dcousineau',
-            ]
-        ];
-
         $newConfig = $this->siteConfigurationFactory->create();
         $newConfig->set('opencfp', [
-            'speakers' => $mockData
+            'sponsors' => $this->getSponsors(),
         ]);
 
         $this->siteConfiguration->import($newConfig);
+    }
+
+    /**
+     * Get Sponsors List from API
+     * @return array
+     */
+    public function getSponsors()
+    {
+        return (new \Guzzle\Http\Client($this->baseUrl))
+            ->get('/sponsors')
+            ->send()
+            ->json();
     }
 }
