@@ -1,0 +1,14 @@
+<div class="grid grid--gutters">
+    {% for sponsor in site.opencfp.sponsors %}
+        <div class="grid__cell grid__cell--one-quarter lap-grid__cell--one-half palm-grid__cell--full">
+            <div class="sponsor grid grid--center">
+                {% if sponsor.sponsor_level != "community" %}
+                    <div class="ribbon ribbon--{{ sponsor.sponsor_level }}">{{ sponsor.sponsor_level|capitalize }}</div>
+                {% endif %}
+                <a href="{{ sponsor.url }}" title="{{ sponsor.name }}" class="grid__cell--center">
+                    <img src="{{ sponsor.logo_path }}" alt="{{ sponsor.name }}">
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
