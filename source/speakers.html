@@ -1,0 +1,28 @@
+---
+layout: default
+title: Speakers
+name: Speakers
+---
+{% block body %}
+    <section class="l-section">
+        <div class="container">
+            <h2 class="h-section">Speakers</h2>
+            {% for speaker in site.opencfp.speakers %}
+                <div class="speaker" id="{{ speaker.first_name|lower }}-{{speaker.last_name|lower }}">
+                    <img src="{{ speaker.photo_path }}" class="speaker__photo">
+                    <div class="speaker__body">
+                        <h3 class="h-speaker">{{ speaker.first_name }} {{ speaker.last_name }}</h3>
+                        <p>{{ speaker.bio }}</p>
+                        <h4 class="h-speaker">Sessions</h4>
+                        {% for talk in speaker.talks %}
+                            <a href="/sessions#{{ talk.slug }}">{{ talk.title }}</a><br>
+                        {% endfor %}
+                    </div>
+                    <div class="speaker__footer"></div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+{% block sponsors %}
+{% endblock %}

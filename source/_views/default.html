@@ -115,35 +115,6 @@
                 $('.page-frame').removeClass('active');
             });
         });
-
-        /**
-         * Offset anchors due to fixed header
-         * @param  {Event} e Event object
-         * @return {void}
-         */
-        function scrollAdjust(e) {
-            var anchorPosition;
-            var hash = location.hash.replace('#', '');
-
-            // Click Event
-            if (e) {
-                e.preventDefault();
-                hash = $(this).attr('href').replace('#', '');
-            }
-
-            if (hash) {
-                anchorPosition = $('#' + hash).offset().top - 65;
-                $('html, body').scrollTop(anchorPosition);
-            }
-        }
-
-        $('a[href^="#"]').on('click', scrollAdjust);
-
-        // Offset anchors onload
-        $(window).on('load', function() {
-            $('html, body').scrollTop(0);
-            setTimeout(scrollAdjust, 1);
-        });
     </script>
     <script type="text/javascript" src="/assets/js/vendor/bootstrap.min.js"></script>
     {% block javascript %}

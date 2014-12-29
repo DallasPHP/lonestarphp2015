@@ -24,6 +24,11 @@ $breakpoints: (
   padding: 0;
 }
 
+.grid--grow {
+  flex-flow: row wrap;
+  .grid__cell { flex-grow: 1; }
+}
+
 .grid__cell {
   flex: 1;
 }
