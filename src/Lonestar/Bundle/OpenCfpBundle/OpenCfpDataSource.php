@@ -46,6 +46,8 @@ class OpenCfpDataSource implements DataSourceInterface {
         $newConfig = $this->siteConfigurationFactory->create();
         $newConfig->set('opencfp', [
             'sponsors' => $this->getSponsors(),
+            'talks' => $this->getTalks(),
+            'speakers' => $this->getSpeakers(),
         ]);
 
         $this->siteConfiguration->import($newConfig);
@@ -59,6 +61,30 @@ class OpenCfpDataSource implements DataSourceInterface {
     {
         return (new \Guzzle\Http\Client($this->baseUrl))
             ->get('/sponsors')
+            ->send()
+            ->json();
+    }
+
+    /**
+     * Get Speakers List from API
+     * @return array
+     */
+    public function getSpeakers()
+    {
+        return (new \Guzzle\Http\Client($this->baseUrl))
+            ->get('/speakers')
+            ->send()
+            ->json();
+    }
+
+    /**
+     * Get Talks List from API
+     * @return array
+     */
+    public function getTalks()
+    {
+        return (new \Guzzle\Http\Client($this->baseUrl))
+            ->get('/talks')
             ->send()
             ->json();
     }
