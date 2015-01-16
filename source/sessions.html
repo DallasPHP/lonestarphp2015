@@ -8,7 +8,7 @@ name: Sessions
         <div class="container">
             <h2 class="h-section">Sessions</h2>
             {% for talk in site.opencfp.talks %}
-                <div class="speaker">
+                <div class="speaker" id="{{ talk.slug }}">
                     <img src="{{ talk.speaker.photo_path }}" class="speaker__photo">
                     <div class="speaker__body">
                         <h3 class="h-speaker">{{ talk.title }}</h3>
