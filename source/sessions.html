@@ -12,7 +12,7 @@ name: Sessions
                     <img src="{{ talk.speaker.photo_path }}" class="speaker__photo">
                     <div class="speaker__body">
                         <h3 class="h-speaker">{{ talk.title }}</h3>
-                        <p>{{ talk.abstract }}</p>
+                        <p>{{ talk.abstract|raw }}</p>
                         <h4 class="h-speaker"><a href="/speakers#{{ talk.speaker.first_name|lower }}-{{ talk.speaker.last_name|lower }}">{{ talk.speaker.first_name }} {{ talk.speaker.last_name }}</a></h4>
                     </div>
                     <div class="speaker__footer"></div>

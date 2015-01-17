@@ -12,7 +12,7 @@ name: Speakers
                     <img src="{{ speaker.photo_path }}" class="speaker__photo">
                     <div class="speaker__body">
                         <h3 class="h-speaker">{{ speaker.first_name }} {{ speaker.last_name }}</h3>
-                        <p>{{ speaker.bio }}</p>
+                        <p>{{ speaker.bio|raw }}</p>
                         <h4 class="h-speaker">Sessions</h4>
                         {% for talk in speaker.talks %}
                             <a href="/sessions#{{ talk.slug }}">{{ talk.title }}</a><br>

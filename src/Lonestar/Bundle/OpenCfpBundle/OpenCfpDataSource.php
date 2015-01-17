@@ -10,6 +10,7 @@ use dflydev\util\antPathMatcher\AntPathMatcher;
 use Sculpin\Core\SiteConfiguration\SiteConfigurationFactory;
 use Sculpin\Core\Source\SourceSet;
 use Sculpin\Core\Source\MemorySource;
+use Michelf\Markdown;
 
 class OpenCfpDataSource implements DataSourceInterface {
 
@@ -71,10 +72,18 @@ class OpenCfpDataSource implements DataSourceInterface {
      */
     public function getSpeakers()
     {
-        return (new \Guzzle\Http\Client($this->baseUrl))
+        $json = (new \Guzzle\Http\Client($this->baseUrl))
             ->get('/speakers')
             ->send()
             ->json();
+
+        $json = array_map(function($speaker) {
+            $speaker['bio'] = Markdown::defaultTransform($speaker['bio']);
+
+            return $speaker;
+        }, $json);
+
+        return $json;
     }
 
     /**
@@ -83,9 +92,17 @@ class OpenCfpDataSource implements DataSourceInterface {
      */
     public function getTalks()
     {
-        return (new \Guzzle\Http\Client($this->baseUrl))
+        $json = (new \Guzzle\Http\Client($this->baseUrl))
             ->get('/talks')
             ->send()
             ->json();
+
+        $json = array_map(function($talk) {
+            $talk['abstract'] = Markdown::defaultTransform($talk['abstract']);
+
+            return $talk;
+        }, $json);
+
+        return $json;
     }
 }
