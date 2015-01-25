@@ -1,18 +1,30 @@
+$sycamore: #a6858b;
+$acacia: #8d9e54;
+$buckthorn: #b0b5bf;
+$juniper: #ba2e53;
+
 .schedule { margin-bottom: 1rem; }
-.schedule-row .schedule-session {
+.schedule-row > .schedule-session {
   background: #eee;
   font-size: 0.9rem;
-  &:hover { background: rgba(255, 247, 188, 0.3); }
+  &:hover { background: rgba(255, 247, 188, 0.1); }
 }
-.schedule-row--alt .schedule-session { background: #DBDBEA; }
-.schedule-block--centered { text-align: center; }
-.schedule-block--middle { line-height: 6rem; }
-.schedule-block {
-  margin-top: 4px;
-  padding: 0.5em;
-  min-height: 8rem;
+.schedule-block--center { text-align: center; }
+.schedule-block--middle > h5 {
+  line-height: 6rem;
+  margin-bottom: 0;
 }
-.schedule-time { background: #ccc; }
+.schedule-session {
+  border-left: 4px solid transparent;
+  margin: 0.2rem 0;
+  padding: 0.5rem;
+  min-height: 7rem;
+}
+.schedule-time {
+  background: #ccc;
+  text-align: center;
+  padding: 0.25rem;
+}
 .schedule-location,
 .schedule-talk,
 .schedule-speaker {
@@ -22,6 +34,82 @@
 }
 .schedule-talk > a {
   color: #333;
+  text-decoration: none;
 }
 
 .grid--narrow > .schedule-row > .grid__item { padding-left: 4px; }
+
+.legend-key {
+  text-align: center;
+  margin: 1rem 0;
+}
+.legend {
+  margin: 0 0.5rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  &:before {
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    vertical-align: middle;
+    background: #DDD;
+    margin: -0.5rem 0.5em 0 0;
+  }
+}
+
+.legend--sycamore:before {
+  background: $sycamore;
+}
+.legend--sycamore:hover:before {
+  background: saturate($sycamore, 25%);
+}
+.schedule-session--sycamore {
+  border-color: $sycamore;
+  &:hover {
+    border-color: saturate($sycamore, 25%);
+  }
+  & > .schedule-talk > a:hover { color: saturate($sycamore, 25%); }
+}
+
+.legend--acacia:before {
+  background: $acacia;
+}
+.legend--acacia:hover:before {
+  background: saturate($acacia, 25%);
+}
+.schedule-session--acacia {
+  border-color: $acacia;
+  &:hover {
+    border-color: saturate($acacia, 25%);
+  }
+  & > .schedule-talk > a:hover { color: saturate($acacia, 25%); }
+}
+
+.legend--buckthorn:before {
+  background: $buckthorn;
+}
+.legend--buckthorn:hover:before {
+  background: saturate($buckthorn, 25%);
+}
+.schedule-session--buckthorn {
+  border-color: $buckthorn;
+  &:hover {
+    border-color: saturate($buckthorn, 25%);
+  }
+  & > .schedule-talk > a:hover { color: saturate($buckthorn, 25%); }
+}
+
+.legend--juniper:before {
+  background: $juniper;
+}
+.legend--juniper:hover:before {
+  background: saturate($juniper, 25%);
+}
+.schedule-session--juniper {
+  border-color: $juniper;
+  &:hover {
+    border-color: saturate($juniper, 25%);
+  }
+  & > .schedule-talk > a:hover { color: saturate($juniper, 25%); }
+}
