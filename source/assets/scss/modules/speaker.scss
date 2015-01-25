@@ -49,6 +49,9 @@
   max-height: 250px;
   max-width: 50%;
   & > img { width: 100%; }
+  @media only screen and (min-width: 2000px) {
+    max-width: 15%;
+  }
 }
 .speaker-flex:before {
   z-index: 1;
