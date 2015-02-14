@@ -33,7 +33,8 @@ class OpenCfpDataSource implements DataSourceInterface {
         $this->finderFactory = $finderFactory ?: new FinderFactory;
         $this->matcher = $matcher ?: new AntPathMatcher;
         $this->sinceTime = '1970-01-01T00:00:00Z';
-        $this->baseUrl = 'http://api.lonestarphp.com';
+        // $this->baseUrl = 'http://api.lonestarphp.com';
+        $this->baseUrl = 'http://localhost:4000';
     }
 
     public function dataSourceId() {
