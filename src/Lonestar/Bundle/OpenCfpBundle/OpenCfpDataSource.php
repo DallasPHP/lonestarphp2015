@@ -60,10 +60,18 @@ class OpenCfpDataSource implements DataSourceInterface {
      */
     public function getSponsors()
     {
-        return (new \Guzzle\Http\Client($this->baseUrl))
+        $json = (new \Guzzle\Http\Client($this->baseUrl))
             ->get('/sponsors')
             ->send()
             ->json();
+
+        $json = array_map(function($sponsor) {
+            $sponsor['description'] = Markdown::defaultTransform($sponsor['description']);
+
+            return $sponsor;
+        }, $json);
+
+        return $json;
     }
 
     /**
