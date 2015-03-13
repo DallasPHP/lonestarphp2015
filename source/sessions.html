@@ -8,14 +8,19 @@ name: Sessions
         <div class="container">
             <h2 class="h-section">Sessions</h2>
             {% for talk in site.opencfp.talks %}
-                <div class="speaker" id="{{ talk.slug }}">
-                    <img src="{{ talk.speaker.photo_path }}" class="speaker__photo">
-                    <div class="speaker__body">
-                        <h3 class="h-speaker">{{ talk.title }}</h3>
+                <div class="session" id="{{ talk.slug }}">
+                    <h3 class="session__title">{{ talk.title }}</h3>
+                    <div class="session__body">
                         <p>{{ talk.abstract|raw }}</p>
-                        <h4 class="h-speaker"><a href="/speakers#{{ talk.speaker.first_name|lower }}-{{ talk.speaker.last_name|lower }}">{{ talk.speaker.first_name }} {{ talk.speaker.last_name }}</a></h4>
                     </div>
-                    <div class="speaker__footer"></div>
+                    <div class="session__footer">
+                        {% for speaker in talk.speakers %}
+                            <a href="/speakers#{{ speaker.first_name|lower }}-{{ speaker.last_name|lower }}" class="session__speaker">
+                                <img src="{{ speaker.photo_path }}"><br>
+                                {{ speaker.first_name }} {{ speaker.last_name }}
+                            </a>
+                        {% endfor %}
+                    </div>
                 </div>
             {% endfor %}
         </div>
